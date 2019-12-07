@@ -1,0 +1,217 @@
+{% assign board = include.data["board"] %}
+{% assign microcontroller = site.data.devices.STM32F1[include.data["microcontroller"]] %}
+{% assign crystals = include.data["crystals"] %}
+{% assign power = include.data["power"] %}
+{% assign regulator = site.data.devices.regulators[power["regulator"]] %}
+{% assign connectors = include.data["connectors"] %}
+{% assign headers = connectors | where: "role", "header" %}
+{% assign debug_headers = connectors | where: "role", "debug" %}
+{% assign other_connectors = connectors | where: "role", "other" %}
+{% assign usb = connectors | where: "role", "usb" | first %}
+{% assign io = include.data["io"] %}
+{% assign pcb = include.data["pcb"] %}
+{% assign resources = include.data["resources"] %}
+{% assign images = include.data["images"] %}
+{% assign remarks = include.data["remarks"] %}
+
+<h1>{{ microcontroller["part"]["name"] }} - {{ board["name"] }}</h1>
+
+<p>
+    <img src="{{ site.url }}/assets/img/boards/{{ images[0]["file"] }}" alt="{{ board["name"] }} {{ images[0]["name"] }}">
+</p>
+
+<h2>Overview</h2>
+
+<table>
+    <tr>
+        <td rowspan="3"><b>Board</b></td>
+        <td>Name</td>
+        <td>{{ board["name"] }}</td>
+    </tr>
+    <tr>
+        <td>Brand</td>
+        <td>{{ board["brand"] | default: "Unknown" }}</td>
+    </tr>
+    <tr>
+        <td>Origin</td>
+        <td>{{ board["origin"] | default: "Unknown" }}</td>
+    </tr>
+    <tr>
+        <td rowspan="6"><b>Microcontroller</b></td>
+        <td>Part</td>
+        <td><a href="{{ microcontroller["part"]["url"] }}">{{ microcontroller["part"]["name"] }}</a></td>
+    </tr>
+    <tr>
+        <td>Package</td>
+        <td>{{ microcontroller["package"] }}</td>
+    </tr>
+    <tr>
+        <td>Core</td>
+        <td><a href="{{ microcontroller["cpu"]["url"] }}">{{ microcontroller["cpu"]["core"] }}</a></td>
+    </tr>
+    <tr>
+        <td>FLASH</td>
+        <td>{{ microcontroller["memories"]["flash"] }}KiB</td>
+    </tr>
+    <tr>
+        <td>SRAM</td>
+        <td>{{ microcontroller["memories"]["sram"] }}KiB</td>
+    </tr>
+    <tr>
+        <td>Max. Clock Speed</td>
+        <td>{{ microcontroller["cpu"]["clock"]["max"] }}MHz</td>
+    </tr>
+    <tr>
+        <td rowspan="2"><b>Crystals</b></td>
+        <td>HSE (High Speed External)</td>
+        <td>{{ crystals["hse"] | default: "None" }}{% if crystals["hse"] %}MHz{% endif %}</td>
+    </tr>
+    <tr>
+        <td>LSE (Low Speed External)</td>
+        <td>{{ crystals["lse"] | default: "None" }}{% if crystals["lse"] %}kHz{% endif %}</td>
+    </tr>
+    <tr>
+        <td rowspan="6"><b>Power</b></td>
+        <td>Sources</td>
+        <td>
+            {% for source in power["sources"] %}
+            <div>{{source["name"]}} (+{{ source["voltage"] }}V)</div>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>Regulator manufacturer</td>
+        <td>{% if regulator["manufacturer"] %}{% if regulator["manufacturer"]["url"] %}<a href="{{ regulator["manufacturer"]["url"] }}">{% endif %}{{ regulator["manufacturer"]["name"] }}{% if regulator["manufacturer"]["url"] %}</a>{% endif %}{% else %}Unknown{% endif %}</td>
+    </tr>
+    <tr>
+        <td>Regulator part number</td>
+        <td>{% if regulator["part"] %}{% if regulator["part"]["url"] %}<a href="{{ regulator["part"]["url"] }}">{% endif %}{{ regulator["part"]["name"] }}{% if regulator["part"]["smd"] %} (<code>{{ regulator["part"]["smd"] }}</code>){% endif %}{% if regulator["part"]["url"] %}</a>{% endif %}{% else %}Unknown{% endif %}</td>
+    </tr>
+    <tr>
+        <td>Regulator package</td>
+        <td>{{ regulator["package"] }}</td>
+    </tr>
+    <tr>
+        <td>Output</td>
+        <td>{% if regulator["output"] %}+{{ regulator["output"]["voltage"] }}V @ {% if regulator["output"]["amperage"] < 1 %}{{ regulator["output"]["amperage"] | times: 1000 | floor }}mA{% else %}{{ regulator["output"]["amperage"] }}A{% endif %}{% else %}Unknown{% endif %}</td>
+    </tr>
+    <tr>
+        <td>Battery holder</td>
+        <td>{{ power["battery"] | default: "None" }}</td>
+    </tr>
+    <tr>
+        <td rowspan="4"><b>Connectivity</b></td>
+        <td>Headers</td>
+        <td>
+            {% for header in headers %}
+            <div><a href="#{{ header["name"] | replace: " ", "-" }}">{{ header["name"] }}</a> {{ header["size"]["width"] }}x{{ header["size"]["height"] }} {{ header["type"] }}, {{ header["gender"] }}, {{ header["pitch"] }}mm</div>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>Specific</td>
+        <td>{% if other_connectors.size == 0 %}None{% else %}Specific connectors here{% endif %}</td>
+    </tr>
+    <tr>
+        <td>Debug</td>
+        <td>
+            {% for debug in debug_headers %}
+            <div><a href="#{{ debug["name"] | replace: " ", "-" }}">{{ debug["name"] }}</a> {{ debug["size"]["width"] }}x{{ debug["size"]["height"] }} {{ debug["type"] }}, {{ debug["gender"] }}, {{ debug["pitch"] }}mm</div>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>USB</td>
+        <td>{{ usb["type"] }}</td>
+    </tr>
+    <tr>
+        <td rowspan="3"><b>I/O</b></td>
+        <td>LEDs</td>
+        <td>
+            {% for output in io["outputs"] %}
+            <div>{{ output["purpose"] | capitalize }} {{ output["type"] }} ({% if output["name"] %}<b>{{ output["name"] }}</b>, {% endif %}<code>{{ output["to"] }}</code>{% if output["mode"] %}, {{ output["mode"] }}{% endif %})</div>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>Buttons, switches and jumpers</td>
+        <td>
+            {% for input in io["inputs"] %}
+            <div>{{ input["purpose"] | capitalize }} {{ input["type"] }} ({% if input["name"] %}<b>{{ input["name"] }}</b>, {% endif %}<code>{{ input["to"] }}</code>)</div>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td>Other devices</td>
+        <td>{% if devices %}It has devices!{% else %}None{% endif %}</td>
+    </tr>
+    <tr>
+        <td rowspan="3"><b>PCB</b></td>
+        <td>Colour</td>
+        <td>{{ pcb["color"] | capitalize }}</td>
+    </tr>
+    <tr>
+        <td>Size (w x l)</td>
+        <td>{{ pcb["size"]["width"] }}mm x {{ pcb["size"]["length"] }}mm</td>
+    </tr>
+    <tr>
+        <td>Mounting</td>
+        <td>{{ pcb["mounting"] | default: "None" | capitalize }}</td>
+    </tr>
+    <tr>
+        <td><b>Remarks</b></td>
+        <td colspan="2">
+            {% if remarks %}
+            <ul>
+                {% for remark in remarks %}
+                <li><b>{{ remark["type"] | capitalize }}:</b> {{ remark["content"] }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+
+{% if resources %}
+<h2>Resources</h2>
+
+<ul>
+    {% for resource in resources %}
+    <li><a href="{{ site.url }}/assets/pdf/boards/{{ resource["file"] }}">{{ resource["name"] }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+<h2>Pictures</h2>
+
+{% for image in images %}
+<p>
+    <img src="{{ site.url }}/assets/img/boards/{{ image["file"] }}" alt="{{ board["name"] }} {{ image["name"] }}">
+</p>
+{% endfor %}
+
+{% for connector in connectors %}
+
+<h2 id="{{ connector["name"] | replace: " ", "-" }}">{{ connector["name"] }}</h2>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Connected to</th>
+    </tr>
+    {% for pin in connector["pins"] %}
+    <tr>
+        <td>{{ pin["number"] }}</td>
+        <td>{{ pin["name"] }}</td>
+        {% if pin["activeLow"] %}
+        <td><span class="active-low">{{ pin["to"] }}</span></td>
+        {% else %}
+        <td>{{ pin["to"] | default: "N.C." }}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endfor %}

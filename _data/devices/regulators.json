@@ -1,0 +1,18 @@
+{
+    "TX6211B-SOT23-5": {
+        "manufacturer": {
+            "name": "Shanghai TX Electronics Sci-Tech Co., Ltd",
+            "url": "http://txsemi.com/"
+        },
+        "part": {
+            "name": "TX6211B",
+            "smd": "DE=A1D",
+            "url": "http://www.txsemi.com/Upload/TX6211B_V12-11264794020.pdf",
+        },
+        "package": "SOT23-5",
+        "output": {
+            "voltage": 3.3,
+            "amperage": 0.3
+        }
+    }
+}
