@@ -1,0 +1,295 @@
+{
+    "media": [
+        {
+            "name": "Perspective view",
+            "type": "image",
+            "file": "STM32F103VET6_CZ_mini-EK-1.jpg"
+        },
+        {
+            "name": "Top view",
+            "type": "image",
+            "file": "STM32F103VET6_CZ_mini-EK-2.jpg"
+        },
+        {
+            "name": "Bottom view",
+            "type": "image",
+            "file": "STM32F103VET6_CZ_mini-EK-3.jpg"
+        }
+    ],
+    "board": {
+        "name": "CZ miniSTM32F103VE-EK",
+        "part": null,
+        "brand": null,
+        "origin": "AliExpress, China"
+    },
+    "microcontroller": "STM32F103VET6",
+    "crystals": {
+        "hse": 8,
+        "lse": 32.768
+    },
+    "power": {
+        "sources": [
+            {
+                "name": "Any +3.3V pin",
+                "voltage": 3.3
+            },
+            {
+                "name": "Any +5V pin",
+                "voltage": 5
+            },
+            {
+                "name": "USB connector",
+                "voltage": 5
+            }
+        ],
+        "regulator": "AMS1117-SOT223",
+        "battery": {
+            "installed": null,
+            "size": {
+                "code": "12",
+                "diameter": 12.5
+        }
+    },
+    "io": {
+        "outputs": [
+            {
+                "purpose": "power",
+                "type": "LED",
+                "name": "Pwr",
+                "to": "+3.3V rail"
+            },
+            {
+                "purpose": "user",
+                "type": "LED",
+                "name": "DS1",
+                "to": "PE5",
+                "mode": "sink"
+            },
+            {
+                "purpose": "user",
+                "type": "LED",
+                "name": "DS2",
+                "to": "PE6",
+                "mode": "sink"
+            }
+        ],
+        "inputs": [
+            {
+                "purpose": "reset",
+                "type": "button",
+                "name": "K1",
+                "to": "NRST",
+                "mode": "active low"
+            },
+            {
+                "purpose": "boot option",
+                "type": "2-way jumper",
+                "name": null,
+                "to": "BOOT0",
+                "partOf": "Header 2"
+            },
+            {
+                "purpose": "boot option",
+                "type": "2-way jumper",
+                "name": null,
+                "to": "BOOT1",
+                "partOf": "Header 2"
+            },
+            {
+                "purpose": "user",
+                "type": "button",
+                "name": "K2",
+                "to": "PE3",
+                "mode": "active low"
+            },
+            {
+                "purpose": "user",
+                "type": "button",
+                "name": "K3",
+                "to": "PC5",
+                "mode": "active low"
+            },
+            {
+                "purpose": "enable",
+                "type": "1-way jumper",
+                "name": "MCU_RXD",
+                "to": "PA10",
+                "note": "Connects Rx to CH340G"
+            },
+            {
+                "purpose": "enable",
+                "type": "1-way jumper",
+                "name": "MCU_TXD",
+                "to": "PA9",
+                "note": "Connects Tx to CH340G"
+            },
+            {
+                "purpose": "power select",
+                "type": "switch",
+                "name": "Pwr sw",
+                "to": "+5V USB"
+            }
+        ],
+        "devices": [
+            {
+                "manufacturer": {
+                    "name": "WCH",
+                    "url": "http://wch.cn/"
+                },
+                "part": {
+                    "name": "CH340G",
+                    "url": "https://cdn.sparkfun.com/datasheets/Dev/Arduino/Other/CH340DS1.PDF"
+                },
+                "type": "converter",
+                "purpose": "USB to Serial"
+            },
+            {
+                "manufacturer": {
+                    "name": "HangShun",
+                    "url": null
+                },
+                "part": {
+                    "name": "HK24C04",
+                    "url": null
+                },
+                "type": "EEPROM",
+                "purpose": "memory",
+                "size": 4
+            },
+            {
+                "manufacturer": {
+                    "name": "Winbond",
+                    "url": "https://www.winbond.com/"
+                },
+                "part": {
+                    "name": "W25Q16DVSIG",
+                    "url": "https://www.winbond.com/resource-files/w25q16dv_revi_nov1714_web.pdf"
+                },
+                "type": "FLASH",
+                "purpose": "memory",
+                "size": 2
+            }
+        ]
+    },
+    "pcb": {
+        "color": "blue",
+        "size": { "length": 105, "width": 76 },
+        "mounting": "4x mouting hole (M3)"
+    },
+    "remarks": [
+        { "type": "warning", "content": "The +5V pins on this board are directly connected to the +5V pin of the USB connector. There is no protection in place. Do not power this board through USB and an external power supply at the same time." },
+    ],
+    "connectors": [
+        {
+            "role": "header",
+            "name": "Header 1",
+            "marker": "J1",
+            "type": "pin header",
+            "gender": "male",
+            "pitch": 2.54,
+            "size": { "length": 23, "width": 2 },
+            "pins": [
+                { "number": 1,  "name": "GND",  "to": "Ground plane" },
+                { "number": 2,  "name": "3V3",  "to": "+3.3V rail" },
+                { "number": 3,  "name": "PC0",  "to": "PC0" },
+                { "number": 4,  "name": "PC1",  "to": "PC1" },
+                { "number": 5,  "name": "PC2",  "to": "PC2" },
+                { "number": 6,  "name": "PC3",  "to": "PC3" },
+                { "number": 7,  "name": "3V3",  "to": "+3.3V rail" },
+                { "number": 8,  "name": "VREF", "to": "VREF" },
+                { "number": 9,  "name": "PA0",  "to": "PA0" },
+                { "number": 10, "name": "PA1",  "to": "PA1" },
+                { "number": 11, "name": "PA2",  "to": "PA2" },
+                { "number": 12, "name": "PA3",  "to": "PA3" },
+                { "number": 13, "name": "PA4",  "to": "PA4" },
+                { "number": 14, "name": "PA5",  "to": "PA5" },
+                { "number": 15, "name": "PA6",  "to": "PA6" },
+                { "number": 16, "name": "PA7",  "to": "PA7" },
+                { "number": 17, "name": "PC4",  "to": "PC4" },
+                { "number": 18, "name": "PC5",  "to": "PC5" },
+                { "number": 19, "name": "PB0",  "to": "PB0" },
+                { "number": 20, "name": "PB1",  "to": "PB1" },
+                { "number": 21, "name": "PB2",  "to": "PB2" },
+                { "number": 22, "name": "PE7",  "to": "PE7" },
+                { "number": 23, "name": "PE8",  "to": "PE8" },
+                { "number": 24, "name": "PE9",  "to": "PE9" },
+                { "number": 25, "name": "PE10", "to": "PE10" },
+                { "number": 26, "name": "PE11", "to": "PE11" },
+                { "number": 27, "name": "PE12", "to": "PE12" },
+                { "number": 28, "name": "PE13", "to": "PE13" },
+                { "number": 29, "name": "PE14", "to": "PE14" },
+                { "number": 30, "name": "PE15", "to": "PE15" },
+                { "number": 31, "name": "PB10", "to": "PB10" },
+                { "number": 32, "name": "PB11", "to": "PB11" },
+                { "number": 33, "name": "PB12", "to": "PB12" },
+                { "number": 34, "name": "PB13", "to": "PB13" },
+                { "number": 35, "name": "PB14", "to": "PB14" },
+                { "number": 36, "name": "PB15", "to": "PB15" },
+                { "number": 37, "name": "PD8",  "to": "PD8" },
+                { "number": 38, "name": "PD9",  "to": "PD9" },
+                { "number": 39, "name": "PD10", "to": "PD10" },
+                { "number": 40, "name": "PD11", "to": "PD11" },
+                { "number": 41, "name": "PD12", "to": "PD12" },
+                { "number": 42, "name": "PD13", "to": "PD13" },
+                { "number": 43, "name": "PD14", "to": "PD14" },
+                { "number": 44, "name": "PD15", "to": "PD15" },
+                { "number": 45, "name": "GND",  "to": "Ground plane" },
+                { "number": 46, "name": "5V",   "to": "+5V rail" }
+            ]
+        },
+        {
+            "pins": [
+                { "number": 1,  "name": "",  "to": "" },
+                { "number": 2,  "name": "",  "to": "" },
+                { "number": 3,  "name": "",  "to": "" },
+                { "number": 4,  "name": "",  "to": "" },
+                { "number": 5,  "name": "",  "to": "" },
+                { "number": 6,  "name": "",  "to": "" },
+                { "number": 7,  "name": "",  "to": "" },
+                { "number": 8,  "name": "",  "to": "" },
+                { "number": 9,  "name": "",  "to": "" },
+                { "number": 10, "name": "",  "to": "" },
+                { "number": 11, "name": "",  "to": "" },
+                { "number": 12, "name": "",  "to": "" },
+                { "number": 13, "name": "",  "to": "" },
+                { "number": 14, "name": "",  "to": "" },
+                { "number": 15, "name": "",  "to": "" },
+                { "number": 16, "name": "",  "to": "" },
+                { "number": 17, "name": "",  "to": "" },
+                { "number": 18, "name": "",  "to": "" },
+                { "number": 19, "name": "",  "to": "" },
+                { "number": 20, "name": "",  "to": "" },
+                { "number": 21, "name": "",  "to": "" },
+                { "number": 22, "name": "",  "to": "" },
+                { "number": 23, "name": "",  "to": "" },
+                { "number": 24, "name": "",  "to": "" },
+                { "number": 25, "name": "",  "to": "" },
+                { "number": 26, "name": "",  "to": "" },
+                { "number": 27, "name": "",  "to": "" },
+                { "number": 28, "name": "",  "to": "" },
+                { "number": 29, "name": "",  "to": "" },
+                { "number": 30, "name": "",  "to": "" },
+                { "number": 31, "name": "",  "to": "" },
+                { "number": 32, "name": "",  "to": "" },
+                { "number": 33, "name": "",  "to": "" },
+                { "number": 34, "name": "",  "to": "" },
+                { "number": 35, "name": "",  "to": "" },
+                { "number": 36, "name": "",  "to": "" },
+                { "number": 37, "name": "",  "to": "" },
+                { "number": 38, "name": "",  "to": "" },
+                { "number": 39, "name": "",  "to": "" },
+                { "number": 40, "name": "",  "to": "" },
+                { "number": 41, "name": "",  "to": "" },
+                { "number": 42, "name": "",  "to": "" },
+                { "number": 43, "name": "",  "to": "" },
+                { "number": 44, "name": "",  "to": "" },
+                { "number": 45, "name": "",  "to": "" },
+                { "number": 46, "name": "",  "to": "" },
+                { "number": 47, "name": "",  "to": "" },
+                { "number": 48, "name": "",  "to": "" },
+                { "number": 49, "name": "",  "to": "" },
+                { "number": 50, "name": "",  "to": "" }
+            ]
+        }
+    ]
+}

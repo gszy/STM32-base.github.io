@@ -21,5 +21,28 @@
             "flash": 64,
             "sram": 20
         }
+    },
+    "STM32F103VET6": {
+        "manufacturer": {
+            "name": "ST-Microelectronics",
+            "url": "https://www.st.com/content/st_com/en.html"
+        },
+        "part": {
+            "name": "STM32F103VET6",
+            "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32f103ve.html"
+        },
+        "package": "LQFP100",
+        "cpu": {
+            "core": "Arm Cortex-M3",
+            "url": "https://developer.arm.com/ip-products/processors/cortex-m/cortex-m3",
+            "clock": {
+                "min": null,
+                "max": 72
+            }
+        },
+        "memories": {
+            "flash": 512,
+            "sram": 48
+        }
     }
 }

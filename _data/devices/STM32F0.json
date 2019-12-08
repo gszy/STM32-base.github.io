@@ -1,0 +1,25 @@
+{
+    "STM32F030F4P6": {
+        "manufacturer": {
+            "name": "ST-Microelectronics",
+            "url": "https://www.st.com/content/st_com/en.html"
+        },
+        "part": {
+            "name": "STM32F030F4P6",
+            "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32f030f4.html"
+        },
+        "package": "TSSOP20",
+        "cpu": {
+            "core": "Arm Cortex-M0",
+            "url": "https://developer.arm.com/ip-products/processors/cortex-m/cortex-m0",
+            "clock": {
+                "min": null,
+                "max": 48
+            }
+        },
+        "memories": {
+            "flash": 16,
+            "sram": 4
+        }
+    }
+}

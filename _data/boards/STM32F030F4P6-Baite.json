@@ -1,0 +1,152 @@
+{
+    "media": [
+        {
+            "name": "Perspective view",
+            "type": "image",
+            "file": "STM32F030F4P6_Baite-1.jpg"
+        },
+        {
+            "name": "Top view",
+            "type": "image",
+            "file": "STM32F030F4P6_Baite-2.jpg"
+        },
+        {
+            "name": "Bottom view",
+            "type": "image",
+            "file": "STM32F030F4P6_Baite-3.jpg"
+        }
+    ],
+    "board": {
+        "name": "Baite STM32F030F4 Module",
+        "part": "BTE17-08",
+        "brand": {
+            "name": "Baite",
+            "url": "https://aliexpress.com/store/812021"
+        },
+        "origin": "AliExpress, China"
+    },
+    "microcontroller": "STM32F030F4P6",
+    "crystals": {
+        "hse": 16,
+        "lse": null
+    },
+    "power": {
+        "sources": [
+            {
+                "name": "Any +3.3V pin",
+                "voltage": 3.3
+            },
+            {
+                "name": "VIN pin",
+                "voltage": 5
+            }
+        ],
+        "regulator": "AMS1117-SOT89-3",
+        "battery": null
+    },
+    "io": {
+        "outputs": [
+            {
+                "purpose": "power",
+                "type": "LED",
+                "name": "PWR",
+                "to": "+3.3V rail"
+            },
+            {
+                "purpose": "user",
+                "type": "LED",
+                "name": "TST",
+                "to": "PA1",
+                "mode": "sink"
+            }
+        ],
+        "inputs": [
+            {
+                "purpose": "boot option",
+                "type": "1-way jumper",
+                "name": null,
+                "to": "BOOT0",
+                "mode": "active high"
+            }
+        ],
+        "devices": null
+    },
+    "pcb": {
+        "color": "green",
+        "size": { "length": 25, "width": 18 },
+        "mounting": "breadboard"
+    },
+    "remarks": [
+        { "type": "note", "content": "This board has a 16MHz HSE crystal installed instead of a more common 8MHz variant." }
+    ],
+    "connectors": [
+        {
+            "role": "header",
+            "name": "Header 1",
+            "type": "pin header",
+            "gender": "male",
+            "pitch": 2.54,
+            "size": { "length": 10, "width": 1 },
+            "pins": [
+                { "number": 1,  "name": "A14", "to": "PA14" },
+                { "number": 2,  "name": "A13", "to": "PA13" },
+                { "number": 3,  "name": "A10", "to": "PA10" },
+                { "number": 4,  "name": "A9",  "to": "PA9" },
+                { "number": 5,  "name": "VIN", "to": "Vin rail" },
+                { "number": 6,  "name": "GND", "to": "Ground plane" },
+                { "number": 7,  "name": "B1",  "to": "PB1" },
+                { "number": 8,  "name": "A7",  "to": "PA7" },
+                { "number": 9,  "name": "A6",  "to": "PA6" },
+                { "number": 10, "name": "A5",  "to": "PA5" }
+            ]
+        },
+        {
+            "role": "header",
+            "name": "Header 2",
+            "type": "pin header",
+            "gender": "male",
+            "pitch": 2.54,
+            "size": { "length": 10, "width": 1 },
+            "pins": [
+                { "number": 1,  "name": "BT0", "to": "BOOT0" },
+                { "number": 2,  "name": "F0",  "to": "PF0" },
+                { "number": 3,  "name": "F1",  "to": "PF1" },
+                { "number": 4,  "name": "GND", "to": "Ground plane" },
+                { "number": 5,  "name": "3V3", "to": "+3.3V rail" },
+                { "number": 6,  "name": "A0",  "to": "PA0" },
+                { "number": 7,  "name": "A1",  "to": "PA1" },
+                { "number": 8,  "name": "A2",  "to": "PA2" },
+                { "number": 9,  "name": "A3",  "to": "PA3" },
+                { "number": 10, "name": "A4",  "to": "PA4" }
+            ]
+        },
+        {
+            "role": "debug",
+            "name": "SWD",
+            "type": "pin header",
+            "gender": "male",
+            "pitch": 2.54,
+            "size": { "length": 4, "width": 1 },
+            "pins": [
+                { "number": 1, "name": "GND",   "to": "Ground plane" },
+                { "number": 2, "name": "SWDIO", "to": "PA13" },
+                { "number": 3, "name": "SWCLK", "to": "PA14" },
+                { "number": 4, "name": "3V3",   "to": "+3.3V rail" }
+            ]
+        },
+        {
+            "role": "communication",
+            "name": "Serial",
+            "type": "pin header",
+            "gender": "male",
+            "pitch": 2.54,
+            "size": { "length": 4, "width": 1 },
+            "pins": [
+                { "number": 1, "name": "GND", "to": "Ground plane" },
+                { "number": 2, "name": "RX",  "to": "PA10" },
+                { "number": 3, "name": "TX",  "to": "PA9" },
+                { "number": 4, "name": "3V3", "to": "+3.3V rail" }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,34 @@
 {
+    "media": [
+        {
+            "name": "Variants",
+            "type": "image",
+            "file": "STM32F103C8T6_Blue_Pill-4.jpg"
+        },
+        {
+            "name": "Perspective view",
+            "type": "image",
+            "file": "STM32F103C8T6_Blue_Pill-1.jpg"
+        },
+        {
+            "name": "Top view",
+            "type": "image",
+            "file": "STM32F103C8T6_Blue_Pill-2.jpg"
+        },
+        {
+            "name": "Bottom view",
+            "type": "image",
+            "file": "STM32F103C8T6_Blue_Pill-3.jpg"
+        },
+        {
+            "name": "Schematic",
+            "type": "document",
+            "file": "original-schematic-STM32F103C8T6-Blue_Pill.pdf"
+        }
+    ],
     "board": {
         "name": "Blue Pill",
+        "part": null,
         "brand": null,
         "origin": "AliExpress, China"
     },
@@ -27,6 +55,57 @@
         "regulator": "TX6211B-SOT23-5",
         "battery": null
     },
+    "io": {
+        "outputs": [
+            {
+                "purpose": "power",
+                "type": "LED",
+                "name": "PWR",
+                "to": "+3.3V rail"
+            },
+            {
+                "purpose": "user",
+                "type": "LED",
+                "name": "PC13",
+                "to": "PC13",
+                "mode": "sink"
+            }
+        ],
+        "inputs": [
+            {
+                "purpose": "reset",
+                "type": "button",
+                "name": "RESET",
+                "to": "NRST",
+                "mode": "active low"
+            },
+            {
+                "purpose": "boot option",
+                "type": "2-way jumper",
+                "name": null,
+                "to": "BOOT0"
+            },
+            {
+                "purpose": "boot option",
+                "type": "2-way jumper",
+                "name": null,
+                "to": "BOOT1"
+            }
+        ],
+        "devices": null
+    },
+    "pcb": {
+        "color": "blue",
+        "size": { "length": 53, "width": 23 },
+        "mounting": "breadboard"
+    },
+    "remarks": [
+        { "type": "warning", "content": "The +5V pins on this board are directly connected to the +5V pin of the USB connector. There is no protection in place. Do not power this board through USB and an external power supply at the same time." },
+        { "type": "warning", "content": "This board may have a wrong value of resistor on the USB D+ pin. Instead of a 1.5kΩ it has either a 10kΩ or 4.7kΩ resistor. This can be solved by replacing the resistor with the right value." },
+        { "type": "trivia",  "content": "This board might be one of the most popular Chinese STM32 development boards currently available. This board is based on the Maple Mini." },
+        { "type": "trivia",  "content": "This board got its name from a forum post at the STM32duino forums and is a reference to the movie <a href=\"https://www.imdb.com/title/tt0133093/\">The Matrix</a>." },
+        { "type": "trivia",  "content": "This board is <a href=\"https://stm32-base.org/boards/STM32F051C8T6-Blue-Pill\">also available</a> with an <code>STM32F051C8T6</code> microcontroller, although slightly different." }
+    ],
     "connectors": [
         {
             "role": "header",
@@ -104,7 +183,7 @@
         },
         {
             "role": "usb",
-            "name": "Main USB",
+            "name": "USB",
             "type": "Micro",
             "pins": [
                 { "number": 1, "name": "VCC", "to": "+5V rail" },
@@ -114,88 +193,5 @@
                 { "number": 5, "name": "GND", "to": "Ground plane" }
             ]
         }
-    ],
-    "io": {
-        "outputs": [
-            {
-                "purpose": "power",
-                "type": "LED",
-                "name": "PWR",
-                "to": "+3.3V"
-            },
-            {
-                "purpose": "user",
-                "type": "LED",
-                "name": "PC13",
-                "to": "PC13",
-                "mode": "sink"
-            }
-        ],
-        "inputs": [
-            {
-                "purpose": "reset",
-                "type": "button",
-                "name": "RESET",
-                "to": "NRST",
-                "mode": "active low"
-            },
-            {
-                "purpose": "BOOT0",
-                "type": "2-way jumper",
-                "name": null,
-                "to": "BOOT0"
-            },
-            {
-                "purpose": "BOOT1",
-                "type": "2-way jumper",
-                "name": null,
-                "to": "BOOT1"
-            }
-        ],
-        "devices": null
-    },
-    "pcb": {
-        "color": "blue",
-        "size": {
-            "width": 23,
-            "length": 53
-        },
-        "mounting": "breadboard"
-    },
-    "resources": [
-        {
-            "name": "Schematic",
-            "type": "pdf",
-            "file": "original-schematic-STM32F103C8T6-Blue_Pill.pdf"
-        }
-    ],
-    "images": [
-        {
-            "name": "Variants",
-            "type": "image",
-            "file": "STM32F103C8T6_Blue_Pill-4.jpg"
-        },
-        {
-            "name": "Perspective view",
-            "type": "image",
-            "file": "STM32F103C8T6_Blue_Pill-1.jpg"
-        },
-        {
-            "name": "Top view",
-            "type": "image",
-            "file": "STM32F103C8T6_Blue_Pill-2.jpg"
-        },
-        {
-            "name": "Bottom view",
-            "type": "image",
-            "file": "STM32F103C8T6_Blue_Pill-3.jpg"
-        }
-    ],
-    "remarks": [
-        { "type": "warning", "content": "The +5V pins on this board are directly connected to the +5V pin of the USB connector. There is no protection in place. Do not power this board through USB and an external power supply at the same time." },
-        { "type": "warning", "content": "This board may have a wrong value of resistor on the USB D+ pin. Instead of a 1.5kΩ it has either a 10kΩ or 4.7kΩ resistor. This can be solved by replacing the resistor with the right value." },
-        { "type": "trivia",  "content": "This board might be one of the most popular Chinese STM32 development boards currently available. This board is based on the Maple Mini." },
-        { "type": "trivia",  "content": "This board got its name from a forum post at the STM32duino forums and is a reference to the movie <a href=\"https://www.imdb.com/title/tt0133093/\">The Matrix</a>." },
-        { "type": "trivia",  "content": "This board is <a href=\"https://stm32-base.org/boards/STM32F051C8T6-Blue-Pill\">also available</a> with an <code>STM32F051C8T6</code> microcontroller, although slightly different." }
     ]
 }
