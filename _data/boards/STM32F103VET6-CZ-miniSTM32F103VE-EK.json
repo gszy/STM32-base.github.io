@@ -259,7 +259,35 @@
             ]
         },
         {
-            "role": "debug"
+            "role": "debug",
+            "name": null,
+            "marker": "CN1",
+            "type": "IDC",
+            "gender": "male",
+            "pitch": 2.54,
+            "size": { "length": 10, "width": 2 },
+            "pins": [
+                { "number": 1,  "name": "VCC",   "to": "+3.3V rail", "swd": "" },
+                { "number": 2,  "name": "VCC",   "to": "+3.3V rail", "swd": "" },
+                { "number": 3,  "name": "TRST",  "to": "PB4", "swd": "" },
+                { "number": 4,  "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 5,  "name": "TDI",   "to": "PA15", "swd": "" },
+                { "number": 6,  "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 7,  "name": "TMS",   "to": "PA13", "swd": "SWDIO" },
+                { "number": 8,  "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 9,  "name": "TCLK",  "to": "PA14", "swd": "SWCLK" },
+                { "number": 10, "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 11, "name": "RTCK",  "to": null, "swd": "" },
+                { "number": 12, "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 13, "name": "TDO",   "to": "PB3", "swd": "SWO" },
+                { "number": 14, "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 15, "name": "RESET", "to": "NRST", "activeLow": true, "swd": "" },
+                { "number": 16, "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 17, "name": "N.C.",  "to": null, "swd": "" },
+                { "number": 18, "name": "GND",   "to": "Ground plane", "swd": "" },
+                { "number": 19, "name": "N.C.",  "to": "+5V rail", "swd": "" },
+                { "number": 20, "name": "GND",   "to": "Ground plane", "swd": "" }
+            ]
         },
         {
             "role": "sd",
@@ -270,16 +298,16 @@
             "pitch": null,
             "size": null,
             "pins": [
-                { "number": 1, "name": "DAT2", "to": "" },
-                { "number": 2, "name": "CD/DAT3", "to": "" },
-                { "number": 3, "name": "CMD", "to": "" },
-                { "number": 4, "name": "VDD", "to": "" },
-                { "number": 5, "name": "CLK", "to": "" },
-                { "number": 6, "name": "VSS", "to": "" },
-                { "number": 7, "name": "DAT0", "to": "" },
-                { "number": 8, "name": "DAT1", "to": "" },
-                { "number": 9, "name": "Card detect", "to": "" },
-                { "number": 10, "name": "Card detect", "to": "" }
+                { "number": 1,  "name": "DAT2", "to": null },
+                { "number": 2,  "name": "CD/DAT3", "to": "PC11" },
+                { "number": 3,  "name": "CMD", "to": "PD2" },
+                { "number": 4,  "name": "VDD", "to": "+3.3V rail" },
+                { "number": 5,  "name": "CLK", "to": "PC12" },
+                { "number": 6,  "name": "VSS", "to": "Ground plane" },
+                { "number": 7,  "name": "DAT0", "to": "PC8" },
+                { "number": 8,  "name": "DAT1", "to": null },
+                { "number": 9,  "name": "CD", "to": null },
+                { "number": 10, "name": "Body", "to": "Ground plane" }
             ]
         },
         {
